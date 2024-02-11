@@ -13,6 +13,7 @@ function App() {
         <h1 id='title'>ODIN BOOk</h1>
         <ul>
           <li> <Link to="/login">login</Link></li>
+          <li> <Link to="/profile">profile</Link></li>
         </ul>
       </div>
     </>

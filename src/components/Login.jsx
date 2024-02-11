@@ -27,7 +27,7 @@ function UserForm({ form }) {
     }).then(function(data) {
       // `data` is the parsed version of the JSON returned from the above endpoint.
       console.log(data);  // { "userId": 1, "id": 1, "title": "...", "body": "..." }
-      
+      localStorage.setItem("loginToken",data.token)
       //store the token here and store in local storage.
     });
   }
