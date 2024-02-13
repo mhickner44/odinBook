@@ -1,6 +1,7 @@
 //get a user profile here with the correct token 
 import { useEffect, useState } from "react";
 import profilePic from "../assets/profilePic.png"
+import fetcher from "../helpers/fetcher"
 
 //make a request for the information that it needs 
 //make a simple get request right now
@@ -12,15 +13,10 @@ const profile = () => {
     //needs to be async
     const getProfile = async () => {
 
-
-        let token = localStorage.getItem("loginToken")
-
-        let profileInfo = await fetch('http://localhost:3000/profile', {
+        await fetcher('http://localhost:3000/profile', {
             method: 'GET',
-            headers: { "Content-Type": "application/json", 'Accept': 'application/json', Authorization: `Bearer ${token}` },
-
+            headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
         }).then(function (response) {
-
             return response.json();
         }).then(function (data) {
             // `data` is the parsed version of the JSON returned from the above endpoint.
