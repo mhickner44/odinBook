@@ -6,8 +6,6 @@ import fetcher from "../helpers/fetcher"
 //make a request for the information that it needs 
 //make a simple get request right now
 
-
-
 const profile = () => {
     const [info, setInfo] = useState("");
     //needs to be async
