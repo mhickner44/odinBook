@@ -14,6 +14,7 @@ function App() {
         <ul>
           <li> <Link to="/login">login</Link></li>
           <li> <Link to="/profile">profile</Link></li>
+          <li><Link to="/SignUp">Sign up</Link></li>
         </ul>
       </div>
     </>
