@@ -1,27 +1,24 @@
 import { useState } from 'react'
 import fetcher from "../helpers/fetcher"
 import { Link } from 'react-router-dom'
-
-
-
-
-
-
+import { useForm } from 'react-hook-form'
 
 
 
 
 const Login = () => {
 
-  const handleLogin = async (event) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+
+
+  const handleLogin = async (data) => {
     event.preventDefault()
-
-    const formData = new FormData(event.target)
-    const data = Object.fromEntries(formData)
-    console.log((data))
-
-
-
+    console.log(data)
     fetcher("http://localhost:3000/login/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -33,8 +30,10 @@ const Login = () => {
     }).then(function (data) {
       // `data` is the parsed version of the JSON returned from the above endpoint.
       localStorage.setItem("loginToken", data.token)
+
       //take it back to the main feed
-      window.location.href = 'http://localhost:5173/'
+      //  window.location.href = 'http://localhost:5173/'
+      alert(data.token)
       //store the token here and store in local storage.
     });
   }
@@ -45,11 +44,13 @@ const Login = () => {
     <>
       <div>
         <h2> Login here and <Link to="/SignUp">Sign up</Link>  here </h2>
-        <form className='login' onSubmit={handleLogin} id='clearInput' >
+        <form className='login' onSubmit={handleSubmit(handleLogin)} id='clearInput' >
           <label>Username:</label>
-          <input type="text" name='username' ></input>
+          <input {...register("username", { required: "You must have a username" })} />
+          <p>{errors.username?.message}</p>
           <label >Password:</label>
-          <input type='password' name='password'></input>
+          <input {...register("password", { required: "You must have a password" })} />
+          <p>{errors.password?.message}</p>
           <button type="submit">Submit</button>
         </form>
       </div >
