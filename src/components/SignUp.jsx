@@ -10,15 +10,35 @@ const SignUp = () => {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
     } = useForm()
+
+    const [errMsg, setErrMsg] = useState('')
+
+    //use a state to constantly have the 
+
+    function pwdChange() {
+
+        //when the password inputs change they will check this 
+        let pwd = watch("password")
+        let pwdVerify = watch("passwordVerify")
+
+        if (pwd != pwdVerify) {
+            //throw error
+            setErrMsg("password do not match")
+        } else {
+            setErrMsg("")
+        }
+    }
+
+
 
     const handleSignup = async (data) => {
         event.preventDefault()
 
         //dont need this
         delete data.password2;
-
 
         console.log(data)
         await fetch("http://localhost:3000/login/createUser/", {
@@ -37,6 +57,8 @@ const SignUp = () => {
                 window.location.href = 'http://localhost:5173/login'
             } else {
                 //help username taken message
+                alert(data)
+                reset({ username: "", password: '',passwordVerify:'' })
             }
             //store the token here and store in local storage.
         });
@@ -51,20 +73,29 @@ const SignUp = () => {
                     <label>Username:</label>
                     <input {...register("username", { required: "You must have a username" })} />
                     <label >Password:</label>
-                    <p>{errors.username?.message}</p>
-                    <input {...register("password", {
+                    <p>{errors.username?.message} </p>
+                    <input type='password' onChange={pwdChange} {...register("password", {
                         required: "You must have a username",
                         pattern: {
-                            value: '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$',
-                            message: "must match pattern"
-                        }
-                    }
-                    )} />
+                            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+                            message: "must contain Capital letter,symbol, and number"
+                        },
+                        onChange: (e) => {
+                            pwdChange()
+
+                        },
+                    })} />
                     <p>{errors.password?.message}</p>
 
-
                     <label >Password:</label>
-                    <input {...register("password2", { required: "You must have a username" })} />
+                    <input type='password' {...register("passwordVerify", {
+                        required: "",
+                        onChange: (e) => {
+                            pwdChange()
+                        },
+                    })} />
+                    <p>{errors.passwordVerify?.message}</p>
+                    <p>{errMsg}</p>
                     <button type="submit">Submit</button>
                 </form>
             </div>
