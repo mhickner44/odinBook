@@ -1,11 +1,11 @@
 
 import { useState } from 'react'
 import fetcher from "../helpers/fetcher"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 const SignUp = () => {
-
+    const navigate=useNavigate();
     const {
         register,
         handleSubmit,
@@ -36,11 +36,11 @@ const SignUp = () => {
 
     const handleSignup = async (data) => {
         event.preventDefault()
-
-        //dont need this
-        delete data.password2;
-
         console.log(data)
+        //dont need this
+        // data = delete data.passwordVerify;
+
+       
         await fetch("http://localhost:3000/login/createUser/", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -52,9 +52,10 @@ const SignUp = () => {
             return response.json();
         }).then(function (data) {
             // `data` is the parsed version of the JSON returned from the above endpoint.
-            console.log(data)
+         console.log("this is results "+data)
             if (data != "username is taken") {
-                window.location.href = 'http://localhost:5173/login'
+                navigate("/login")
+                alert("account Created")
             } else {
                 //help username taken message
                 alert(data)

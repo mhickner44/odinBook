@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import fetcher from "../helpers/fetcher"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 
@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form'
 
 const Login = () => {
 
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -19,7 +20,7 @@ const Login = () => {
   const handleLogin = async (data) => {
     event.preventDefault()
     console.log(data)
-    fetcher("http://localhost:3000/login/", {
+    fetch("http://localhost:3000/login/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(
@@ -32,8 +33,9 @@ const Login = () => {
       localStorage.setItem("loginToken", data.token)
 
       //take it back to the main feed
-      //  window.location.href = 'http://localhost:5173/'
-      alert(data.token)
+   
+      navigate("/")
+      alert("succesful login");
       //store the token here and store in local storage.
     });
   }
