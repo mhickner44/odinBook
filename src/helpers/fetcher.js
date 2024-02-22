@@ -4,7 +4,7 @@ function updateOptions(options) {
     if (localStorage.loginToken) {
       update.headers = {
         ...update.headers,
-        Authorization: `Bearer ${localStorage.loginToken}`,
+        authorization: `Bearer ${localStorage.loginToken}`,
       };
     }
     return update;

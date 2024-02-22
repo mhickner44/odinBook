@@ -11,17 +11,32 @@ const profile = () => {
     //needs to be async
     const getProfile = async () => {
 
-        await fetcher('http://localhost:3000/profile', {
-            method: 'GET',
-            headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
-        }).then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            // `data` is the parsed version of the JSON returned from the above endpoint.
-            console.log(data);  // { "userId": 1, "id": 1, "title": "...", "body": "..." }
-            setInfo(data)
-            //store the token here and store in local storage.
-        });
+const [userProfile,userPosts]= await Promise.all([
+    await fetcher('http://localhost:3000/profile', {
+        method: 'GET',
+        headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
+    }).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        // `data` is the parsed version of the JSON returned from the above endpoint.
+        console.log(data);  // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+        setInfo(data)
+        //store the token here and store in local storage.
+    }),
+    await fetcher('http://localhost:3000/profile', {
+        method: 'GET',
+        headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
+    }).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        // `data` is the parsed version of the JSON returned from the above endpoint.
+        console.log(data);  // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+        setInfo(data)
+        //store the token here and store in local storage.
+    }),
+])
+
+   ;
 
 
     }

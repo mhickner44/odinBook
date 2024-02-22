@@ -30,13 +30,18 @@ const Login = () => {
       return response.json();
     }).then(function (data) {
       // `data` is the parsed version of the JSON returned from the above endpoint.
-      localStorage.setItem("loginToken", data.token)
+      console.log(data)
+      if (data != "no user") {
+        
+        localStorage.setItem("loginToken", data.token)
+        //take it back to the main feed
+        navigate("/")
+        alert("succesful login");
+        //store the token here and store in local storage.
+      } else {
+        alert("incorrect login");
+      }
 
-      //take it back to the main feed
-   
-      navigate("/")
-      alert("succesful login");
-      //store the token here and store in local storage.
     });
   }
 
