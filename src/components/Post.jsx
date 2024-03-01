@@ -3,22 +3,19 @@ import fetcher from "../helpers/fetcher"
 import { Link } from 'react-router-dom'
 
 
-const Post = () => {
+export default function Post({ post }) {
 
-
+    console.log(post)
     return (
-
         <>
-            <h2>Title</h2>
-            <p>body of the post</p>
-            <div className='postInfo'>
-                <h4>likes:3</h4>
-                <h4>Comments:5</h4>
-            </div>
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
+
+            <h4>number of comments {post.comments.length}</h4>
+
         </>
     )
 
 
 }
 
-export default Post;
