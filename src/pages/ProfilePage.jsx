@@ -11,16 +11,14 @@ import { useParams } from "react-router-dom";
 const ProfilePage = () => {
     //get the props passed from the link 
 
-
-
     const [info, setInfo] = useState("");
     const [posts, setPosts] = useState([]);
     //use this for username a user whose profile we want to get /could have a helper that gets 
     //the user id?
     const param = useParams()
+//if param id isnt there its a normal requests 
 
-
-console.log(param.id)
+    console.log(param.id)
 
     //needs to be async
     const getProfile = async () => {
@@ -28,7 +26,7 @@ console.log(param.id)
         const [userProfile, userPosts] = await Promise.all([
             await fetcher('http://localhost:3000/profile', {
                 method: 'GET',
-                headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
+                headers: { "Content-Type": "application/json", 'Accept': 'application/json',"user":param.id },
             }).then(function (response) {
                 return response.json();
             }).then(function (data) {
@@ -36,11 +34,11 @@ console.log(param.id)
                 // { "userId": 1, "id": 1, "title": "...", "body": "..." }
                 setInfo(data)
                 //store the token here and store in local storage.
-                console.log(info)
+              
             }),
             await fetcher('http://localhost:3000/postFeed/userPosts', {
                 method: 'GET',
-                headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
+                headers: { "Content-Type": "application/json", 'Accept': 'application/json',"user":param.id },
             }).then(function (response) {
                 return response.json();
             }).then(function (data) {
@@ -58,7 +56,7 @@ console.log(param.id)
 
 
     return (
-    
+
         <>
             <Profile info={info} posts={posts} />
         </>

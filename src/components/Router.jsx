@@ -11,29 +11,32 @@ const Router = () => {
         {
             path: "/",
             element: <App />
-          
+
         }, {
-            path:"/login",
-            element: <LoginPage/>
+            path: "/login",
+            element: <LoginPage />
         },
         {//trying path "users"
-            path:"/profilePage/:id",
-            element: <ProfilePage/>
+            path: '/profilePage/:id',
+            element: <ProfilePage />
+        }, {//trying path "users"
+            path: '/profilePage',
+            element: <ProfilePage />
         },
         {
-            path:"/SignUp",
-            element: <SignUp/>
+            path: "/SignUp",
+            element: <SignUp />
         },
         {
-            path:"/Feed",
-            element: <Feed/>
+            path: "/Feed",
+            element: <Feed />
         },
         ,
         {
-            path:"components/PostCreate",
-            element: <PostCreate/>
+            path: "components/PostCreate",
+            element: <PostCreate />
         },
-      
+
     ]);
 
     return <RouterProvider router={router} />;

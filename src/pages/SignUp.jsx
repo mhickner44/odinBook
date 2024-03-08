@@ -40,7 +40,7 @@ const SignUp = () => {
         //dont need this
         delete data.password2;
 
-        console.log(data)
+
         await fetch("http://localhost:3000/login/createUser/", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -52,13 +52,13 @@ const SignUp = () => {
             return response.json();
         }).then(function (data) {
             // `data` is the parsed version of the JSON returned from the above endpoint.
-            console.log(data)
+
             if (data != "username is taken") {
                 window.location.href = 'http://localhost:5173/login'
             } else {
                 //help username taken message
                 alert(data)
-                reset({ username: "", password: '',passwordVerify:'' })
+                reset({ username: "", password: '', passwordVerify: '' })
             }
             //store the token here and store in local storage.
         });

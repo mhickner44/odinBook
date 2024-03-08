@@ -36,7 +36,7 @@ const SignUp = () => {
 
     const handleSignup = async (data) => {
         event.preventDefault()
-        console.log(data)
+     
         //dont need this
         // data = delete data.passwordVerify;
 
@@ -52,7 +52,7 @@ const SignUp = () => {
             return response.json();
         }).then(function (data) {
             // `data` is the parsed version of the JSON returned from the above endpoint.
-         console.log("this is results "+data)
+        
             if (data != "username is taken") {
                 navigate("/login")
                 alert("account Created")

@@ -19,7 +19,7 @@ const Login = () => {
 
   const handleLogin = async (data) => {
     event.preventDefault()
-    console.log(data)
+   
     fetch("http://localhost:3000/login/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -30,7 +30,7 @@ const Login = () => {
       return response.json();
     }).then(function (data) {
       // `data` is the parsed version of the JSON returned from the above endpoint.
-      console.log(data)
+     
       if (data != "no user") {
         
         localStorage.setItem("loginToken", data.token)

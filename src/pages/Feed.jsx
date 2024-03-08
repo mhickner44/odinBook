@@ -21,7 +21,7 @@ const Feed = () => {
                 return response.json();
             }).then(function (data) {
                 // `data` is the parsed version of the JSON returned from the above endpoint.
-                console.log(data);
+               
                 setInfo(data)
 
             }),

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function Post({ post }) {
 
-    console.log(post)
+   
     return (
         <>
             <h2>{post.title}</h2>
