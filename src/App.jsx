@@ -11,7 +11,7 @@ function App() {
 
   //this is will be on the feed page that takes it to the profile page 
 
-  let user = "newTest"
+  let user = "specialUser"
 
 
   return (<>

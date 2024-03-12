@@ -1,8 +1,6 @@
 //get a user profile here with the correct token 
 import { useEffect, useState } from "react";
-import profilePic from "../assets/profilePic.png"
 import fetcher from "../helpers/fetcher"
-import Post from "../components/Post"
 import Profile from "../components/Profile"
 import { useParams } from "react-router-dom";
 //make a request for the information that it needs 
@@ -18,7 +16,7 @@ const ProfilePage = () => {
     const param = useParams()
 //if param id isnt there its a normal requests 
 
-    console.log(param.id)
+  
 
     //needs to be async
     const getProfile = async () => {
@@ -30,8 +28,7 @@ const ProfilePage = () => {
             }).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                // `data` is the parsed version of the JSON returned from the above endpoint.
-                // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+               
                 setInfo(data)
                 //store the token here and store in local storage.
               
@@ -43,7 +40,7 @@ const ProfilePage = () => {
                 return response.json();
             }).then(function (data) {
                 setPosts(data)
-                //store the token here and store in local storage.
+            
             }),
         ]);
     }

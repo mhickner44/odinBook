@@ -19,7 +19,7 @@ const Login = () => {
 
   const handleLogin = async (data) => {
     event.preventDefault()
-    console.log(data)
+   
     fetcher("http://localhost:3000/login/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
