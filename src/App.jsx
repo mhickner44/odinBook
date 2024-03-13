@@ -23,6 +23,7 @@ function App() {
         <li><Link to="/SignUp">Sign up</Link></li>
         <li><Link to="/Feed">Feed</Link></li>
         <li><Link to={`/profilePage/${user}`}>{user}</Link></li>
+        <li><Link to="/FriendRequests">Friend Requests</Link></li>
       </ul>
     </div>
   </>

@@ -5,6 +5,7 @@ import ProfilePage from "../pages/ProfilePage.jsx"
 import SignUp from "./SignUp.jsx";
 import Feed from "../pages/Feed.jsx"
 import PostCreate from "../components/PostCreate"
+import FriendReq from "../pages/friendReq"
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const Router = () => {
         {
             path: "components/PostCreate",
             element: <PostCreate />
+        },
+        {
+            path: "FriendRequests",
+            element: <FriendReq />
         },
 
     ]);
