@@ -2,8 +2,11 @@
 import { Link, useNavigate } from 'react-router-dom'
 import Post from '../components/Post'
 import PostCreate from '../components/PostCreate'
-
+import { useState,useEffect } from 'react'
+import fetcher from '../helpers/fetcher'
 const Feed = () => {
+    const [posts,setPosts]=useState([])
+    
     const navigate = useNavigate()
 
     function handleNew() {
@@ -13,8 +16,8 @@ const Feed = () => {
 
     //return the needed posts for the feed 
     const getFeed = async () => {
-        const [userProfile, userPosts] = await Promise.all([
-            await fetcher('http://localhost:3000/postFeed/feed', {
+        const userPosts = await Promise.all([
+            await fetcher('http://localhost:3000/requests/feed', {
                 method: 'GET',
                 headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
             }).then(function (response) {
@@ -22,7 +25,26 @@ const Feed = () => {
             }).then(function (data) {
                 // `data` is the parsed version of the JSON returned from the above endpoint.
                
-                setInfo(data)
+                setPosts(data)
+
+            }),
+
+        ])
+    }
+
+//take in the last posts created at date.
+//store it in a state?
+    const refreshFeed = async () => {
+        const userPosts = await Promise.all([
+            await fetcher('http://localhost:3000/requests/feed', {
+                method: 'GET',
+                headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                // `data` is the parsed version of the JSON returned from the above endpoint.
+               
+                setPosts(data)
 
             }),
 
@@ -31,6 +53,13 @@ const Feed = () => {
 
 
 
+
+
+
+
+    useEffect(() => {
+        getFeed();
+    }, []);
 
 
     return (
@@ -44,8 +73,11 @@ const Feed = () => {
             </div>
             {/* //posts 
 can loop through this displaying as many as I want */}
-            <Post />
-
+          <h1>Posts</h1>
+                { //POSTS NEED TO BE DISPLAYED . THEY ARE IN A ARRAY
+                    posts.map((object, i) => <Post post={object} key={i} />)
+                }
+<button onClick={refreshFeed}>Show more</button>
         </>
     )
 
