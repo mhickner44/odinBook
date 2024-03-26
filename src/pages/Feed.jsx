@@ -7,6 +7,7 @@ import fetcher from '../helpers/fetcher'
 const Feed = () => {
     const [posts, setPosts] = useState([])
     const [lastPost, setLastPost] = useState("")
+
     const navigate = useNavigate()
 
     function handleNew() {
@@ -59,10 +60,6 @@ const Feed = () => {
 
 
 
-
-
-
-
     useEffect(() => {
         getFeed();
     }, []);
@@ -83,7 +80,7 @@ can loop through this displaying as many as I want */}
             { //POSTS NEED TO BE DISPLAYED . THEY ARE IN A ARRAY
                 posts.map((object, i) => <Post post={object} key={i} />)
             }
-            <button onClick={refreshFeed}  >Show more</button>
+            <button onClick={refreshFeed}>Show more</button>
         </>
     )
 
