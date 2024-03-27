@@ -17,7 +17,7 @@ const PostPage = ( ) => {
     //the user id?
     const param = useParams()
     //if param id isnt there its a normal requests 
-console.log(param.id)
+
     // use param like in profile page to get the id of the post.
 
     //needs to be async
@@ -31,7 +31,7 @@ console.log(param.id)
                 return response.json();
             }).then(function (data) {
              
-              
+       
                 setPosts(data.post)
                 setComments(data.comments)
                 //store the token here and store in local storage.
