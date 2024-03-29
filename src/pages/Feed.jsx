@@ -78,7 +78,8 @@ const Feed = () => {
 can loop through this displaying as many as I want */}
             <h1>Posts</h1>
             { //POSTS NEED TO BE DISPLAYED . THEY ARE IN A ARRAY
-                posts.map((object, i) => <Post post={object} key={i} />)
+         
+                posts.map((object, i) => <Link to={`/PostPage/${object._id}`}><Post post={object} key={i} /></Link>)
             }
             <button onClick={refreshFeed}>Show more</button>
         </>

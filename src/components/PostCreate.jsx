@@ -17,7 +17,6 @@ const navigate=useNavigate();
   const handlePost = async (data) => {
     event.preventDefault()
 
-
     fetcher("http://localhost:3000/postFeed/createPost", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -44,7 +43,7 @@ return (
         <label>Title</label>
         <input {...register("title", { required: "You must have a title" })} />
         <p>{errors.title?.message}</p>
-        <label >Password:</label>
+        <label >Content:</label>
         <textarea {...register("content", { required: "You must have a body of the post" })} />
         <p>{errors.content?.message}</p>
         <button type="submit">Create</button>
