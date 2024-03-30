@@ -1,25 +1,33 @@
 //get a user profile here with the correct token 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import profilePic from "../assets/profilePic.png"
 import Post from "../components/Post"
 import fetcher from "../helpers/fetcher";
+import { useForm } from "react-hook-form";
+import EditProfile from "../components/editProfile"
+
+
 //make a request for the information that it needs 
 //make a simple get request right now
 
 export default function Profile({ info, posts }) {
- 
-   const [trigger,setTrigger]=useState(false)
+  console.log(info)
+  
+
+    const [trigger, setTrigger] = useState(false)
+
 
     function FriendBtn() {
         let btnElement;
-     
+
         if (info.reqType == false) {
-            btnElement
+            btnElement = <EditProfile />
+            //could add a profile pic upload button to show here
         } else if (info.requested == true) {
             btnElement
         } else if (trigger == true) {
             btnElement
-        }else {
+        } else {
             btnElement = <button onClick={friendReq}>follow {info.currentFriend}</button>
         }
         return btnElement
@@ -30,7 +38,7 @@ export default function Profile({ info, posts }) {
 
 
     async function friendReq() {
-      
+
         let friendedUser = { friendedUser: info.userID }
         fetcher("http://localhost:3000/requests", {
             method: 'POST',
@@ -47,13 +55,15 @@ export default function Profile({ info, posts }) {
         });
     }
 
+ 
 
 
 
     return (
         <>
             <h1>{info.username}</h1>
-            <img src={profilePic} />
+            <img src={info.profilePic} />
+
             <FriendBtn />
             <div className="friendContainer">
                 <h2>{info.friendTotal} friends</h2>

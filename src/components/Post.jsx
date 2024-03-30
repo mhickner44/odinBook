@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 
 export default function Post(props) {
 
-console.log(props.post.likes)
+console.log(props)
     const [likes, setLikes] = useState(props.post.likes)
-
+  
     //request in post 
     const likePost = async () => {
         event.preventDefault()
-      
+    
        let  data = {postID:props.post._id}
 
         fetcher("http://localhost:3000/postFeed/likePost", {
@@ -25,7 +25,7 @@ console.log(props.post.likes)
             return response.json();
         }).then(function (data) {
             // `data` is the parsed version of the JSON returned from the above endpoint
-         
+         console.log("i ran")
             console.log(data.likes)
             setLikes(data.likes+1)
         });
@@ -33,6 +33,8 @@ console.log(props.post.likes)
 
     return (
         <>
+
+        
             <h2>{props.post.title}</h2>
             <p>{props.post.content}</p>
             <Link to={`/profilePage/${props.post.username}`}> <h4>user {props.post.username}</h4></Link>

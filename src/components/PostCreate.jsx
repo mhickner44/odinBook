@@ -12,7 +12,7 @@ const Post = () => {
     watch,
     formState: { errors },
   } = useForm()
-const navigate=useNavigate();
+  const navigate=useNavigate();
 
   const handlePost = async (data) => {
     event.preventDefault()

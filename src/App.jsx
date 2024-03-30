@@ -25,6 +25,7 @@ function App() {
         <li><Link to={`/profilePage/${user}`}>{user}</Link></li>
         <li><Link to="/FriendRequests">Friend Requests</Link></li>
         <li><Link to={`/PostPage/65e20b24fb92d070f0398388`}>post id </Link></li>
+        <li><Link to={`/editProfile`}>editprofile </Link></li>
       </ul>
     </div>
   </>

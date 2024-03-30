@@ -55,6 +55,7 @@ const ProfilePage = () => {
     return (
 
         <>
+           
             <Profile info={info} posts={posts} />
         </>
 
