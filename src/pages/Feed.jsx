@@ -69,11 +69,11 @@ const Feed = () => {
 
         <>
             <h1>Feed</h1>
-            {/* new post header */}
-            <div className='newPost'>
-                <input placeholder='Post title' />
-                <Link to="../components/PostCreate"> <button onClick={handleNew} >New</button></Link>
-            </div>
+           
+           
+                
+                <Link to="../components/PostCreate"> <button onClick={handleNew} >New Post</button></Link>
+          
             {/* //posts 
 can loop through this displaying as many as I want */}
             <h1>Posts</h1>

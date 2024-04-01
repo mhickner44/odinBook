@@ -7,7 +7,7 @@ import Feed from "../pages/Feed.jsx"
 import PostCreate from "../components/PostCreate"
 import FriendReq from "../pages/friendReq"
 import PostPage from "../pages/PostPage"
-
+import UserList from "../pages/UserList"
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -45,6 +45,10 @@ const Router = () => {
         },{//trying path "users"
             path: '/PostPage/:id',
             element: <PostPage />
+        },
+        {//trying path "users"
+            path: '/userList',
+            element: <UserList />
         }
         
 
