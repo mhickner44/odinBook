@@ -19,7 +19,7 @@ const Login = () => {
 
   const handleLogin = async (data) => {
     event.preventDefault()
-   
+
     fetch("http://localhost:3000/login/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -30,9 +30,9 @@ const Login = () => {
       return response.json();
     }).then(function (data) {
       // `data` is the parsed version of the JSON returned from the above endpoint.
-     
+
       if (data != "no user") {
-        
+
         localStorage.setItem("loginToken", data.token)
         //take it back to the main feed
         navigate("/")
@@ -49,16 +49,20 @@ const Login = () => {
   return (
 
     <>
-      <div>
-        <h2> Login here and <Link to="/SignUp">Sign up</Link>  here </h2>
-        <form className='login' onSubmit={handleSubmit(handleLogin)} id='clearInput' >
-          <label>Username:</label>
-          <input {...register("username", { required: "You must have a username" })} />
+      <div class="w-1/2 p-4 m-auto text-center border">
+        <h2 class="text-gray-800 text-3xl font-bold mb-2" > Login or <Link to="/SignUp" class="text-blue-500">Sign up</Link>  here </h2>
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" className='login' onSubmit={handleSubmit(handleLogin)} id='clearInput' >
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+            <input  {...register("username", { required: "You must have a username" })}  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+          </div>
           <p>{errors.username?.message}</p>
-          <label >Password:</label>
-          <input {...register("password", { required: "You must have a password" })} />
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+            <input {...register("password", { required: "You must have a password" } ) }   type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
           <p>{errors.password?.message}</p>
-          <button type="submit">Submit</button>
+          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
         </form>
       </div >
 

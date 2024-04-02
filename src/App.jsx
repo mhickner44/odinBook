@@ -1,6 +1,6 @@
 
 
-import './App.css'
+import './index.css'
 import { Link } from "react-router-dom";
 
 
@@ -15,8 +15,11 @@ function App() {
 
 
   return (<>
-    <div className='header'>
-      <h1 id='title'>ODIN BOOk</h1>
+    <div class="" >
+    <h1 className="text-xl underline">
+      Hello world!
+    </h1>
+      <h1 id='title' class="" >ODIN BOOk</h1>
       <ul>
         <li><Link to="/login">login</Link></li>
         <li><Link to="/profilePage">profile</Link></li>
