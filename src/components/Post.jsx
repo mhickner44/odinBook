@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 
 export default function Post(props) {
 
-console.log(props)
+    console.log("i am in a post "+props)
     const [likes, setLikes] = useState(props.post.likes)
-  
+
     //request in post 
     const likePost = async () => {
         event.preventDefault()
-    
-       let  data = {postID:props.post._id}
+
+        let data = { postID: props.post._id }
 
         fetcher("http://localhost:3000/postFeed/likePost", {
             method: 'POST',
@@ -25,24 +25,25 @@ console.log(props)
             return response.json();
         }).then(function (data) {
             // `data` is the parsed version of the JSON returned from the above endpoint
-         console.log("i ran")
+            console.log("i ran")
             console.log(data.likes)
-            setLikes(data.likes+1)
+            setLikes(data.likes + 1)
         });
     }
 
     return (
         <>
 
-        
-            <h2>{props.post.title}</h2>
-            <p>{props.post.content}</p>
-            <Link to={`/profilePage/${props.post.username}`}> <h4>user {props.post.username}</h4></Link>
-            <h4>likes:{likes}</h4>
-            <button onClick={likePost} >Like post</button>
-            {/* <h4>number of comments {props.post.comments.length}</h4> */}
-            <h4>created at +{props.post.createdAt}</h4>
-
+            <div class="border rounded border-black-800 m-5 p-5">
+                <h2 class="block text-black-700 text-lg font-bold mb-2">{props.post.title}</h2>
+                <Link to={`/profilePage/${props.post.username}`} class="block text-gray-700 text-sm font-bold mb-2"> <h4>{props.post.username}</h4></Link>
+                <p class="block text-black-700 text-sm font-bold mb-2">{props.post.content}</p>
+                <div class="flex">
+                    <button onClick={likePost} ><i class="fa-solid fa-thumbs-up"></i> Like post</button> 
+                    <h4 class="m-2">{likes}</h4>
+                </div>
+                <h4>created at +{props.post.createdAt}</h4>
+            </div >
         </>
     )
 
