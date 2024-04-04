@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function Post(props) {
 
-    console.log("i am in a post "+props)
+    console.log("i am in a post " + props)
     const [likes, setLikes] = useState(props.post.likes)
 
     //request in post 
@@ -34,15 +34,15 @@ export default function Post(props) {
     return (
         <>
 
-            <div class="border rounded border-black-800 m-5 p-5">
-                <h2 class="block text-black-700 text-lg font-bold mb-2">{props.post.title}</h2>
+            <div class="border-4 rounded-lg border-black-800 m-5 p-5 ">
+            <Link to={`/postPage/${props.post._id}`}>  <h2 class="block text-black-700 text-2xl font-bold mb-2">{props.post.title}</h2></Link>
                 <Link to={`/profilePage/${props.post.username}`} class="block text-gray-700 text-sm font-bold mb-2"> <h4>{props.post.username}</h4></Link>
-                <p class="block text-black-700 text-sm font-bold mb-2">{props.post.content}</p>
+                <p class="block text-black-500 text-sm  mb-2">{props.post.content}</p>
                 <div class="flex">
-                    <button onClick={likePost} ><i class="fa-solid fa-thumbs-up"></i> Like post</button> 
-                    <h4 class="m-2">{likes}</h4>
+                    <button onClick={likePost} ><i class="fa-solid fa-thumbs-up"></i> </button>
+                    <h4 class="m-2 ">{likes}</h4>
                 </div>
-                <h4>created at +{props.post.createdAt}</h4>
+                <h4 class="text-sm">created at +{props.post.createdAt}</h4>
             </div >
         </>
     )

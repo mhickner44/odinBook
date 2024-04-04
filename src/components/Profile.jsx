@@ -11,8 +11,8 @@ import EditProfile from "../components/editProfile"
 //make a simple get request right now
 
 export default function Profile({ info, posts }) {
-  console.log(info)
-  
+    console.log(info)
+
 
     const [trigger, setTrigger] = useState(false)
 
@@ -28,7 +28,7 @@ export default function Profile({ info, posts }) {
         } else if (trigger == true) {
             btnElement
         } else {
-            btnElement = <button onClick={friendReq}>follow {info.currentFriend}</button>
+            btnElement = <button onClick={friendReq} class="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4  m-auto rounded focus:outline-none focus:shadow-outline ">follow {info.currentFriend}</button>
         }
         return btnElement
     }
@@ -55,22 +55,24 @@ export default function Profile({ info, posts }) {
         });
     }
 
- 
+
 
 
 
     return (
         <>
-            <h1>{info.username}</h1>
-            <img src={info.profilePic} />
-
-            <FriendBtn />
-            <div className="friendContainer">
-                <h2>{info.friendTotal} friends</h2>
-                <h2>{info.postTotal} posts</h2>
+            <div class="mx-auto h-1/3 w-3/4 flex space-y-3 flex-col  shrink align-center text-center">
+                <img src={info.profilePic} class="rounded-full w-auto h-1/4 mx-auto my-5" />
+                <h1 class="text-5xl font-bold ">{info.username}</h1>
+                <FriendBtn />
+                <div className="friendContainer" >
+                    <h2>{info.friendTotal} friends</h2>
+                    <h2>{info.postTotal} posts</h2>
+                </div>
             </div>
-            <div>
-                <h1>Posts</h1>
+
+            <div clas="">
+               
                 { //POSTS NEED TO BE DISPLAYED . THEY ARE IN A ARRAY
                     posts.map((object, i) => <Post post={object} key={i} />)
                 }

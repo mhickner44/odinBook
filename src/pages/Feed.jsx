@@ -81,7 +81,7 @@ can loop through this displaying as many as I want */}
          
                 posts.map((object, i) => <Link to={`/PostPage/${object._id}`}><Post post={object} key={i} /></Link>)
             }
-            <button onClick={refreshFeed}>Show more</button>
+            <button onClick={refreshFeed} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-auto rounded focus:outline-none focus:shadow-outline w-36">Show more</button>
         </>
     )
 

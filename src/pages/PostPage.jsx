@@ -82,16 +82,15 @@ const PostPage = () => {
         return (
 
             <>
-                <h1>Post itself</h1 >
+         
                 <Post post={posts} />
-                <h1>comments</h1>
+                <h1 class="text-black-700 text-l font-bold mx-8 ">comments</h1>
                 {comments.map((e, i) => <Comment comment={e} key={i} />)}
 
-                <form className='newComment' onSubmit={handleSubmit(handleComment)} >
-                    <label >Comment:</label>
-                    <textarea {...register("comment", { required: "leave comment here" })} />
+                <form className='newComment' onSubmit={handleSubmit(handleComment)} class="flex mx-7" >
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-auto rounded focus:outline-none focus:shadow-outline w-36">submit</button>
+                    <textarea {...register("comment", { required: "leave comment here" })} placeholder="Comment" class="border w-3/4" />
                     <p>{errors.comment?.message}</p>
-                    <button type="submit">New Comment</button>
                 </form>
             </>
         );
