@@ -61,18 +61,17 @@ export default function Profile({ info, posts }) {
 
     return (
         <>
-            <div class="mx-auto h-1/3 w-3/4 flex space-y-3 flex-col  shrink align-center text-center">
-                <img src={info.profilePic} class="rounded-full w-auto h-1/4 mx-auto my-5" />
+            <div class="mx-auto h-fit w-3/4 flex space-y-3 flex-col  shrink align-center text-center">
+                <img src={info.profilePic} class="rounded-full w-1/4 h-3/5 mx-auto my-5" />
                 <h1 class="text-5xl font-bold ">{info.username}</h1>
                 <FriendBtn />
-                <div className="friendContainer" >
-                    <h2>{info.friendTotal} friends</h2>
-                    <h2>{info.postTotal} posts</h2>
+                <div className="friendContainer flex justify-center gap-x-5	" >
+                    <h2><i class="fa-solid fa-user-group text-blue-700"></i>{info.friendTotal} </h2>
+                    <h2><i class="fa-solid fa-signs-post  text-blue-700"></i>{info.postTotal}</h2>
                 </div>
             </div>
 
-            <div clas="">
-               
+            <div>
                 { //POSTS NEED TO BE DISPLAYED . THEY ARE IN A ARRAY
                     posts.map((object, i) => <Post post={object} key={i} />)
                 }

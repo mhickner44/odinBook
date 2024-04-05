@@ -43,16 +43,17 @@ const editProfile = () => {
         <>
     
           <form className='login' onSubmit={handleSubmit(handleUpload)} id='clearInput' >
-            <label>Picture:</label>
-    
+          <label for="file-input "><i class="fa-solid fa-camera m-2"></i>
             <input
               {...register("picture", {
                 required: "image uplaod",
               })}
               type="file"
+              class="file:hidden hover:cursor-pointer"
+              id="file-input"
             />
-    
-            <button type="submit">Submit</button>
+    </label>
+            <button type="submit"  class="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4  m-auto rounded focus:outline-none focus:shadow-outline "><i class="fa-solid fa-upload"></i></button>
           </form>
     
         </>

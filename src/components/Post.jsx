@@ -35,7 +35,7 @@ export default function Post(props) {
         <>
 
             <div class="border-4 rounded-lg border-black-800 m-5 p-5 ">
-            <Link to={`/postPage/${props.post._id}`}>  <h2 class="block text-black-700 text-2xl font-bold mb-2">{props.post.title}</h2></Link>
+            <Link to={`/postPage/${props.post._id}`}><h2 class="block text-black-700 text-2xl font-bold mb-2 hover:text-blue-700">{props.post.title}</h2></Link>
                 <Link to={`/profilePage/${props.post.username}`} class="block text-gray-700 text-sm font-bold mb-2"> <h4>{props.post.username}</h4></Link>
                 <p class="block text-black-500 text-sm  mb-2">{props.post.content}</p>
                 <div class="flex">
