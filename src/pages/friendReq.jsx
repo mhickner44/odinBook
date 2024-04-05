@@ -44,7 +44,7 @@ const Login = () => {
 
         let data = {}
         data.addFriend = event.currentTarget.getAttribute("data-value")
-    
+
         fetcher("http://localhost:3000/requests/confirmFriend/", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -71,17 +71,19 @@ const Login = () => {
 
     return (
         <>
-            <div>
-                <h2> Friend Requests</h2>
 
+            <h2 class="font-bold text-5xl text-center m-10"> Friend Requests</h2>
+            <ul class="text-center list-none m-1/4">
                 { //POSTS NEED TO BE DISPLAYED . THEY ARE IN A ARRAY
-                    friendReq.map(object => <div>
-                        <li>{object.username}</li>
-                        <button data-value={object._id} onClick={followUser}>follow</button>
-                    </div>
+                    friendReq.map(object =>
+                        <div class="grid  grid-cols-2  gap-5 m-10 mx-20">
+                            <li>{object.username}</li>
+                            <button data-value={object._id} onClick={followUser} class="bg-blue-500 hover:bg-blue-700 text-white font-bold   rounded focus:outline-none focus:shadow-outline">follow</button>
+                        </div>
                     )
                 }
-            </div >
+            </ul>
+
 
         </>
     )

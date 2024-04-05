@@ -53,20 +53,22 @@ const UserList = () => {
 
     function User(prop, key) {
         console.log(prop.user)
-        return (<div key={key.i}>
-
-            <Link to={`/profilePage/${prop.user.username}`}><li>{prop.user.username}</li></Link>
-            <button onClick={(e) => { friendReq(prop.user.id); handleClick(e) }} data-value={prop.user.id}>follow user</button>
+        return (
+        <div key={key.i} class="grid  grid-cols-2  gap-5 m-10 mx-20">
+            <Link to={`/profilePage/${prop.user.username}`}><li class="">{prop.user.username}</li></Link>
+            <button onClick={(e) => { friendReq(prop.user.id); handleClick(e) }} data-value={prop.user.id} class="bg-blue-500 hover:bg-blue-700 text-white font-bold   rounded focus:outline-none focus:shadow-outline">follow</button>
         </div>)
     }
 
     return (
 
         <>
-            <div>users</div>
+            <h1 class="font-bold text-5xl text-center">USERS</h1>
+            <ul class="text-center list-none m-1/4">
             {users.map((e, i) =>
                 <User user={e} key={i} />
             )}
+            </ul>
         </>
     )
 

@@ -2,35 +2,40 @@
 
 import './index.css'
 import { Link } from "react-router-dom";
-
-
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function App() {
 
 
+
+  const navigate = useNavigate()
   //this is will be on the feed page that takes it to the profile page 
 
-  let user = "newTest"
+
+  useEffect(() => {
+    if (localStorage.loginToken) {
+      navigate("/feed")
+
+    } else {
+      navigate("/login")
+    }
+  }, []);
+
+
+
 
 
   return (<>
-    <div class="" >
-    <h1 className="text-xl underline">
-      Hello world!
-    </h1>
-      <h1 id='title' class="" >ODIN BOOk</h1>
-      <ul>
-        <li><Link to="/login">login</Link></li>
-        <li><Link to="/profilePage">profile</Link></li>
-        <li><Link to="/SignUp">Sign up</Link></li>
-        <li><Link to="/Feed">Feed</Link></li>
-        <li><Link to={`/profilePage/${user}`}>{user}</Link></li>
-        <li><Link to="/FriendRequests">Friend Requests</Link></li>
-        <li><Link to={`/PostPage/65e20b24fb92d070f0398388`}>post id </Link></li>
-        <li><Link to={`/userList`}>Show users</Link></li>
-      </ul>
-    </div>
+
+
+    {/* check whether they are logged in or not and redirect them to the crorect desitinoatino */}
+    <div>
+      <li><Link to="/login">login</Link></li>
+      <li><Link to="/profilePage">profile</Link></li>
+
+    </div >
   </>
   )
 

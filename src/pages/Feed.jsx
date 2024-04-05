@@ -68,17 +68,15 @@ const Feed = () => {
     return (
 
         <>
-            <h1>Feed</h1>
-           
-           
-                
-                <Link to="../components/PostCreate"> <button onClick={handleNew} >New Post</button></Link>
-          
-            {/* //posts 
-can loop through this displaying as many as I want */}
-            <h1>Posts</h1>
+         <Link to="/userList"  class="text-right m-5"><i class="fa-solid fa-user"> USERS</i></Link>
+
+        <div class="text-center">
+        <h1 class="text-center text-4xl font-bold m-4 ">Feed</h1>      
+         <li><Link to={`/userList`}>Show users</Link></li>
+        <Link to="../components/PostCreate"> <button onClick={handleNew} class="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4  m-auto rounded focus:outline-none focus:shadow-outline w-36">Create Post</button></Link>
+        </div>
+            
             { //POSTS NEED TO BE DISPLAYED . THEY ARE IN A ARRAY
-         
                 posts.map((object, i) => <Link to={`/PostPage/${object._id}`}><Post post={object} key={i} /></Link>)
             }
             <button onClick={refreshFeed} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-auto rounded focus:outline-none focus:shadow-outline w-36">Show more</button>

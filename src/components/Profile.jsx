@@ -72,6 +72,7 @@ export default function Profile({ info, posts }) {
             </div>
 
             <div>
+            <h1 class="text-3xl font-bold text-center">Posts</h1>
                 { //POSTS NEED TO BE DISPLAYED . THEY ARE IN A ARRAY
                     posts.map((object, i) => <Post post={object} key={i} />)
                 }

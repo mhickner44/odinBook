@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import fetcher from "../helpers/fetcher"
 import Profile from "../components/Profile"
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 //make a request for the information that it needs 
 //make a simple get request right now
 
@@ -55,7 +56,8 @@ const ProfilePage = () => {
     return (
 
         <>
-           
+       <Link to="/FriendRequests"  class="text-right m-5"><i class="fa-solid fa-user"> Requests</i></Link>
+      
             <Profile info={info} posts={posts} />
         </>
 
