@@ -10,20 +10,6 @@ function App() {
 
 
 
-  const navigate = useNavigate()
-  //this is will be on the feed page that takes it to the profile page 
-
-
-  useEffect(() => {
-    if (localStorage.loginToken) {
-      navigate("/feed")
-
-    } else {
-      navigate("/login")
-    }
-  }, []);
-
-
 
 
 
