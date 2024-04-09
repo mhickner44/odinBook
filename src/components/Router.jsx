@@ -50,8 +50,6 @@ const Router = () => {
             path: '/userList',
             element: <UserList />
         }
-        
-
     ]);
 
     return <RouterProvider router={router} />;

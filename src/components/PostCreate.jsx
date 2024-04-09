@@ -37,16 +37,16 @@ const Post = () => {
 return (
 
   <>
-    <div>
-      <h2> Create a new post </h2>
-      <form className='login' onSubmit={handleSubmit(handlePost)} >
-        <label>Title</label>
-        <input {...register("title", { required: "You must have a title" })} />
+    <div class="p-6 m-auto text-center w-3/4 h-3/4">
+      <h2 class="text-7xl	font-bold">New Post </h2>
+      <form className='login' onSubmit={handleSubmit(handlePost)}  class='text-left'>
+        <label class="font-bold text-3xl w-full">Title</label>
+        <input {...register("title", { required: "You must have a title" }) } class="font-bold text-xl w-full border-2 rounded-md	p-1" />
         <p>{errors.title?.message}</p>
-        <label >Content:</label>
-        <textarea {...register("content", { required: "You must have a body of the post" })} />
+        <label  class="font-bold text-3xl w-full">Content:</label>
+        <textarea {...register("content", { required: "You must have a body of the post" })} class="w-full border-2	rounded-md p-1"/>
         <p>{errors.content?.message}</p>
-        <button type="submit">Create</button>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-auto rounded focus:outline-none focus:shadow-outline w-36">Post</button>
       </form>
     </div >
 
