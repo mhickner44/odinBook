@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async (data) => {
     event.preventDefault()
 
-    fetch("http://localhost:3000/login/", {
+    fetch("https://socialmediaserver.fly.dev/login/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(

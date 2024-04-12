@@ -14,7 +14,7 @@ export default function Post(props) {
 
         let data = { postID: props.post._id }
 
-        fetcher("http://localhost:3000/postFeed/likePost", {
+        fetcher("https://socialmediaserver.fly.dev/postFeed/likePost", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(

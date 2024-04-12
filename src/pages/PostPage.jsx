@@ -30,7 +30,7 @@ const PostPage = () => {
     const getPost = async () => {
 
         const post = await Promise.all([
-            await fetcher('http://localhost:3000/postFeed/post', {
+            await fetcher('https://socialmediaserver.fly.dev/postFeed/post', {
                 method: 'GET',
                 headers: { "Content-Type": "application/json", 'Accept': 'application/json', "postID": param.id },
             }).then(function (response) {
@@ -51,7 +51,7 @@ const PostPage = () => {
 
         data.postID = posts._id
 
-        fetcher("http://localhost:3000/postFeed/createComment", {
+        fetcher("https://socialmediaserver.fly.dev/postFeed/createComment", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(

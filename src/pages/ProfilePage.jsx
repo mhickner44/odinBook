@@ -23,7 +23,7 @@ const ProfilePage = () => {
     const getProfile = async () => {
 
         const [userProfile, userPosts] = await Promise.all([
-            await fetcher('http://localhost:3000/profile', {
+            await fetcher('https://socialmediaserver.fly.dev/profile', {
                 method: 'GET',
                 headers: { "Content-Type": "application/json", 'Accept': 'application/json',"user":param.id },
             }).then(function (response) {
@@ -34,7 +34,7 @@ const ProfilePage = () => {
                 //store the token here and store in local storage.
               
             }),
-            await fetcher('http://localhost:3000/postFeed/userPosts', {
+            await fetcher('https://socialmediaserver.fly.dev/postFeed/userPosts', {
                 method: 'GET',
                 headers: { "Content-Type": "application/json", 'Accept': 'application/json',"user":param.id },
             }).then(function (response) {

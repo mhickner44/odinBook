@@ -40,7 +40,7 @@ export default function Profile({ info, posts }) {
     async function friendReq() {
 
         let friendedUser = { friendedUser: info.userID }
-        fetcher("http://localhost:3000/requests", {
+        fetcher("https://socialmediaserver.fly.dev/requests", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(

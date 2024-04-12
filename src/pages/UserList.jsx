@@ -10,7 +10,7 @@ const UserList = () => {
     const getUsers = async () => {
 
 
-        fetcher("http://localhost:3000/requests/users", {
+        fetcher("https://socialmediaserver.fly.dev/requests/users", {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         }).then(function (response) {
@@ -26,7 +26,7 @@ const UserList = () => {
     async function friendReq(e) {
 
         let friendedUser = { friendedUser: e }
-        fetcher("http://localhost:3000/requests", {
+        fetcher("https://socialmediaserver.fly.dev/requests", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(

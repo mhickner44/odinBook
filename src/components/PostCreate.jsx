@@ -17,7 +17,7 @@ const Post = () => {
   const handlePost = async (data) => {
     event.preventDefault()
 
-    fetcher("http://localhost:3000/postFeed/createPost", {
+    fetcher("https://socialmediaserver.fly.dev/postFeed/createPost", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(

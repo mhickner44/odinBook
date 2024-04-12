@@ -26,7 +26,7 @@ const editProfile = () => {
     formData.append("picture", data.picture[0]);
 
 
-    fetcher("http://localhost:3000/uploads", {
+    fetcher("https://socialmediaserver.fly.dev/uploads", {
         method: 'POST',
         body: formData
     }).then(function (response) {

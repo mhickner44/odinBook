@@ -12,7 +12,7 @@ export default function Comment(comment) {
         event.preventDefault()
 
         let data = { commentID: comment._id }
-        fetcher("http://localhost:3000/postFeed/likeComment", {
+        fetcher("https://socialmediaserver.fly.dev/postFeed/likeComment", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(

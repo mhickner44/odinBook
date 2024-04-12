@@ -28,8 +28,9 @@ const Router = () => {
                 { path: "Feed", element: <Feed /> },
                 { path: "components/PostCreate", element: <PostCreate /> },
                 { path: "FriendRequests", element: <FriendReq /> },
-                { path: "FriendRequests", element: <UserList /> },
+                { path: "userList", element: <UserList /> },
                 { path: "PostPage/:id", element: <PostPage /> },
+              
             ]
         },{
             path: "/Login",

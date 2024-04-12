@@ -41,7 +41,7 @@ const SignUp = () => {
         // data = delete data.passwordVerify;
 
 
-        await fetch("http://localhost:3000/login/createUser/", {
+        await fetch("https://socialmediaserver.fly.dev/login/createUser/", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(

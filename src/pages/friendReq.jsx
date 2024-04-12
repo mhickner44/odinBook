@@ -14,7 +14,7 @@ const Login = () => {
 
     const getFriendReq = async () => {
 
-        fetcher("http://localhost:3000/requests/pending/", {
+        fetcher("https://socialmediaserver.fly.dev/requests/pending/", {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         }).then(function (response) {
@@ -45,7 +45,7 @@ const Login = () => {
         let data = {}
         data.addFriend = event.currentTarget.getAttribute("data-value")
 
-        fetcher("http://localhost:3000/requests/confirmFriend/", {
+        fetcher("https://socialmediaserver.fly.dev/requests/confirmFriend/", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(

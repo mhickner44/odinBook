@@ -18,7 +18,7 @@ const Feed = () => {
     //return the needed posts for the feed 
     const getFeed = async () => {
         const userPosts = await Promise.all([
-            await fetcher('http://localhost:3000/requests/feed', {
+            await fetcher('https://socialmediaserver.fly.dev/requests/feed', {
                 method: 'GET',
                 headers: { "Content-Type": "application/json", 'Accept': 'application/json' },
             }).then(function (response) {
@@ -42,7 +42,7 @@ const Feed = () => {
     const refreshFeed = async () => {
         let postJSON = { lastPost: lastPost }
         const userPosts = await Promise.all([
-            await fetcher('http://localhost:3000/requests/refreshFeed', {
+            await fetcher('https://socialmediaserver.fly.dev/requests/refreshFeed', {
                 method: 'GET',
                 headers: { "Content-Type": "application/json", 'Accept': 'application/json', "lastpost": lastPost },
 
