@@ -32,8 +32,7 @@ const Login = () => {
       // `data` is the parsed version of the JSON returned from the above endpoint.
       localStorage.setItem("loginToken", data.token)
 
-      //take it back to the main feed
-      //  window.location.href = 'http://localhost:5173/'
+  
       alert(data.token)
       //store the token here and store in local storage.
     });

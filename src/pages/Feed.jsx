@@ -68,10 +68,12 @@ const Feed = () => {
     return (
 
         <>
-            <Link to="/userList" class="text-right m-5"><i class="fa-solid fa-user"> USERS</i></Link>
-
+            <div class="flex justify-between text-xl	">
+                <Link to="/profilePage" class="text-right m-5"><i class="fa-solid fa-user"> PROFILE</i></Link>
+                <Link to="/userList" class="text-right m-5"><i class="fa-solid fa-user"> USERS</i></Link>
+            </div>
             <div class="text-center mb-2">
-                <h1 class="text-center text-4xl font-bold m-4 ">Feed</h1>
+                <h1 class="text-center text-6xl font-bold m-4 ">Feed</h1>
                 <Link to="../components/PostCreate"> <button onClick={handleNew} class="bg-blue-500 hover:bg-blue-700 text-white font-bold  px-4  m-auto rounded focus:outline-none focus:shadow-outline w-36">Create Post</button></Link>
             </div>
 
