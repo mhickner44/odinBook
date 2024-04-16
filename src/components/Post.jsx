@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function Post(props) {
 
-    console.log("i am in a post " + props)
+  
     const [likes, setLikes] = useState(props.post.likes)
 
     //request in post 

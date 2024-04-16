@@ -15,9 +15,18 @@ const ProfilePage = () => {
     //use this for username a user whose profile we want to get /could have a helper that gets 
     //the user id?
     const param = useParams()
-//if param id isnt there its a normal requests 
-
+    let header;
   
+    //if param id isnt there its a normal requests 
+ 
+
+    if (param.id == undefined) {
+     header={"Content-Type": "application/json", 'Accept': 'application/json'}
+    }else{
+        header={"Content-Type": "application/json", 'Accept': 'application/json', "user": param.id}
+    }
+ 
+
 
     //needs to be async
     const getProfile = async () => {
@@ -25,23 +34,24 @@ const ProfilePage = () => {
         const [userProfile, userPosts] = await Promise.all([
             await fetcher('https://socialmediaserver.fly.dev/profile', {
                 method: 'GET',
-                headers: { "Content-Type": "application/json", 'Accept': 'application/json',"user":param.id },
+                headers: {header },
             }).then(function (response) {
                 return response.json();
             }).then(function (data) {
-               
+                console.log(data)
                 setInfo(data)
                 //store the token here and store in local storage.
-              
+
             }),
             await fetcher('https://socialmediaserver.fly.dev/postFeed/userPosts', {
                 method: 'GET',
-                headers: { "Content-Type": "application/json", 'Accept': 'application/json',"user":param.id },
+                headers: { "Content-Type": "application/json", 'Accept': 'application/json', "user": param.id },
             }).then(function (response) {
                 return response.json();
             }).then(function (data) {
+                console.log(data)
                 setPosts(data)
-            
+
             }),
         ]);
     }
@@ -56,8 +66,8 @@ const ProfilePage = () => {
     return (
 
         <>
-       <Link to="/FriendRequests"  class="text-right m-5"><i class="fa-solid fa-user"> Requests</i></Link>
-      
+            <Link to="/FriendRequests" class="text-right m-5"><i class="fa-solid fa-user"> Requests</i></Link>
+
             <Profile info={info} posts={posts} />
         </>
 
