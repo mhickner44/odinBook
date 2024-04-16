@@ -11,7 +11,7 @@ import EditProfile from "../components/editProfile"
 //make a simple get request right now
 
 export default function Profile({ info, posts }) {
-
+    console.log(info)
 
 
     const [trigger, setTrigger] = useState(false)

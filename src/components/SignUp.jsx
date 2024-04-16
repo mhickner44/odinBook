@@ -72,33 +72,27 @@ const SignUp = () => {
                 <h2 class="text-gray-800 text-3xl font-bold mb-2"> <Link to="/login" class="text-blue-500">login</Link> or Sign up here </h2>
                 <form className='signUp' onSubmit={handleSubmit(handleSignup)} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" >
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
-                        <input {...register("username", {
-                            required: "You must have a username", pattern: {
-                                value: /\S/,
-                                message: "No spaces"
-                            }
-                        })} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                        <p>{errors.username?.message} </p>
+                        <label  class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
+                        <input {...register("username", { required: "You must have a username" })} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" >Password:</label>
-                        
+                        <label  class="block text-gray-700 text-sm font-bold mb-2" >Password:</label>
+                        <p>{errors.username?.message} </p>
                         <input type='password' onChange={pwdChange} {...register("password", {
                             required: "You must have a password",
                             pattern: {
-                                value: /^(?=.*[a-z])(?=.*[A-Z])/,
-                                message: "must contain Capital letter and number"
+                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+                                message: "must contain Capital letter,symbol, and number"
                             },
                             onChange: (e) => {
                                 pwdChange()
 
                             },
-                        })} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                        })}  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
                         <p>{errors.password?.message}</p>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+                        <label  class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
                         <input type='password' {...register("passwordVerify", {
                             required: "",
                             onChange: (e) => {
