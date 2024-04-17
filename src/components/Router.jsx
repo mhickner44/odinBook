@@ -10,7 +10,7 @@ import PostPage from "../pages/PostPage"
 import UserList from "../pages/UserList"
 import PrivateRoutes from "./PrivateRoutes"
 import Login from "./Login.jsx";
-
+import MyProfilePage from "../pages/MyProfilePage.jsx"
 
 
 
@@ -24,7 +24,7 @@ const Router = () => {
                 {
                     path: "profilePage/:id", element: <ProfilePage />
                 },
-                { path: "profilePage", element: <ProfilePage /> },
+                { path: "profilePage", element: <MyProfilePage /> },
                 { path: "Feed", element: <Feed /> },
                 { path: "components/PostCreate", element: <PostCreate /> },
                 { path: "FriendRequests", element: <FriendReq /> },

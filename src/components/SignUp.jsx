@@ -81,8 +81,8 @@ const SignUp = () => {
                         <input type='password' onChange={pwdChange} {...register("password", {
                             required: "You must have a password",
                             pattern: {
-                                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
-                                message: "must contain Capital letter,symbol, and number"
+                                value: /(?=.*[A-Z])(?=.*[0-9])[A-Z0-9]+/,
+                                message: "must contain Capital letter  and number"
                             },
                             onChange: (e) => {
                                 pwdChange()
